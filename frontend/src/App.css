@@ -13259,6 +13259,8 @@ video {
           transition-duration: 1000ms;
 }
 
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
