@@ -1,0 +1,4 @@
+#search_bar:hover > input {
+    width: 15rem;
+    padding: 0 0.375rem;
+}
