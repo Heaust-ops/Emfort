@@ -22,7 +22,7 @@ export class Navbar extends Component {
               <button className="px-3 flex-initial hover:bg-blue-400">
                 Team
               </button>
-              <a className="px-2 flex-initial hover:bg-blue-400 text-3xl">
+              <a className="px-2 cursor-pointer flex-initial hover:bg-blue-400 text-3xl">
                 <i class="fa fa-shopping-cart"></i>
               </a>
             </div>
