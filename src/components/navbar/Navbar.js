@@ -6,23 +6,23 @@ export class Navbar extends Component {
     return (
       <div className="bg-gray-700">
         <header>
-          <div className="flex flex-col sm:flex-row justify-between" id="header">
+          <div className="flex flex-col lg:flex-row justify-between" id="header">
             <img
-              className="px-3 h-12 flex-initial rounded-full"
+              className="px-3 h-12 hidden lg:block flex-initial rounded-full"
               src="https://emberjs.com/images/brand/ember_E-Icon-1c-White-Rounded-Rectangle.png"
               alt="Company logo"
             ></img>
 
-            <div className="flex flex-initial" id="login_register_team">
+            <div className="flex flex-col lg:flex-row flex-initial" id="login_register_team">
               <SearchBar></SearchBar>
-
-              <button className="px-3 flex-initial hover:bg-blue-400">
+              
+              <button className="px-3 py-3 pt-4 lg:py-0 flex-initial hover:bg-blue-400">
                 Login | Register
               </button>
-              <button className="px-3 flex-initial hover:bg-blue-400">
+              <button className="px-3 py-3 lg:py-0 flex-initial hover:bg-blue-400">
                 Team
               </button>
-              <a className="px-2 cursor-pointer flex-initial hover:bg-blue-400 text-3xl">
+              <a className="px-2 py-1 lg:py-0 text-center cursor-pointer flex-initial hover:bg-blue-400 text-3xl">
                 <i class="fa fa-shopping-cart"></i>
               </a>
             </div>

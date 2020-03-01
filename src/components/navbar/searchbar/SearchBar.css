@@ -1,4 +1,6 @@
-#search_bar:hover > input {
+
+@media (min-width: 1025px) {
+    #search_bar:hover > input {
     width: 15rem;
     padding: 0 0.375rem;
 }
@@ -7,3 +9,5 @@
     width: 15rem;
     padding: 0 0.375rem;
 }
+}
+
