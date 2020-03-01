@@ -6,7 +6,7 @@ export class Navbar extends Component {
     return (
       <div className="bg-gray-700">
         <header>
-          <div className="flex justify-between" id="header">
+          <div className="flex flex-col sm:flex-row justify-between" id="header">
             <img
               className="px-3 h-12 flex-initial rounded-full"
               src="https://emberjs.com/images/brand/ember_E-Icon-1c-White-Rounded-Rectangle.png"
