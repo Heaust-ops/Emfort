@@ -1,0 +1,79 @@
+.modal{
+    padding: auto auto;
+    margin: auto auto;
+    background-color: aquamarine;
+    align-content: center;
+    border-radius: 5px;
+    height: 22rem;
+    width: 30rem;
+}
+.modal-content-login{
+    padding: 5em 10px 50px 10px;
+    margin: 10px 10px;
+    text-align: center;
+}
+.mains{
+    padding: auto;
+    margin: auto;
+    width: 20em;
+    height: 12.5em;
+    text-align: center;
+}
+.mains > input{
+    border-radius: 3px;
+    background-color: white;
+    border:none;
+    height: 1.9em;
+    width: 19em;
+}
+.mains > label{
+    font-size: 1.2em;
+}
+#login{
+    float: left;
+    padding: 10px 10px;
+    margin: 10px 10px 10px 10px;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-radius:5px ;
+}
+#login > button{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-radius: 5px;
+}
+#reg{
+    float: right;
+    padding: 10px 13px;
+    margin: 10px 10px 10px 10px;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-radius: 5px;
+    height: 1.2em;
+    width: 2.9em;
+    text-align: center;
+}
+#reg > button{
+    border-radius: 5px;
+    background-color: #4CAF50; /* Green */
+    border: none;
+}
+.close{
+    float: right;
+    padding: 10px 10px;
+    margin: 10px 10px 10px 10px;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-radius: 5px;
+    height: 1.2em;
+    width: 2.9em;
+}
+.close > button{
+    background-color: #4CAF50; /* Green */
+    border: none;
+   
+}
+
+.close:active{
+    display: none;
+}
