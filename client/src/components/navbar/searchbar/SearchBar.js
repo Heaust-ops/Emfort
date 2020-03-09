@@ -12,7 +12,7 @@ export class SearchBar extends Component {
             type="text"
           />
           <a className="bg-gray-600 cursor-pointer float-left lg:float-none hover:bg-gray-400 duration-200 w-10 h-10 rounded-full flex justify-center items-center">
-            <i class="fa fa-search"></i>
+            <i className="fa fa-search"></i>
           </a>
         </div>
       </div>
