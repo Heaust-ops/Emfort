@@ -10,9 +10,9 @@ function App() {
 
   return (
     <Provider store={store}>
-    <div className='App overflow-x-hidden'>
+    <div className='App overflow-x-hidden h-screen'>
       <Navbar></Navbar>
-      <Main></Main>
+      <Main style={{height: '200%'}}></Main>
       <Footer></Footer>
     </div>
     </Provider>

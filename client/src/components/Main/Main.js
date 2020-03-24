@@ -6,8 +6,9 @@ import { getItems } from "../../actions/turnActions";
 export class Main extends Component {
   render() {
     return (
-      <main
-        className={`origin-top-left mt-8 text-center overflow-y-auto overflow-hidden duration-500 text-white h-100vh w-100vw transform ${this.props.turn}`}
+      <div
+      style={this.props.style}
+        className={`origin-top-left mt-8 text-center overflow-y-auto duration-500 text-white transform ${this.props.turn}`}
       >
         <p>
           lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum
@@ -45,7 +46,7 @@ export class Main extends Component {
           lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum
           dolor sit amet
         </p>
-      </main>
+      </div>
     );
   }
 }

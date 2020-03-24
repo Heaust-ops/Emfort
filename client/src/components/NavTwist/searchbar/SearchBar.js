@@ -4,7 +4,7 @@ import './SearchBar.css';
 export class SearchBar extends Component {
   render() {
     return (
-      <div className="px-3 mt-1">
+      <div className="pr-20 pl-4">
         <div className="bg-gray-600 h-10 rounded-full lg:-translate-x-1/2 lg:translate-y-12 " id="search_bar">
           <input
             className="border-none text-center lg:text-left w-4/5 lg:float-left lg:w-0 bg-transparent leading-10 outline-none duration-500 p-0 m-0"
