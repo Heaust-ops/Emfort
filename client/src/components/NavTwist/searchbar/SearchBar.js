@@ -11,7 +11,7 @@ export class SearchBar extends Component {
             placeholder="Search for Something!"
             type="text"
           />
-          <a className="bg-gray-600 cursor-pointer float-left lg:float-none hover:bg-gray-400 duration-200 w-10 h-10 rounded-full flex justify-center items-center">
+          <a href='http://localhost:3000/' className="bg-gray-600 cursor-pointer float-left lg:float-none hover:bg-gray-400 duration-200 w-10 h-10 rounded-full flex justify-center items-center">
             <i className="fa fa-search"></i>
           </a>
         </div>
