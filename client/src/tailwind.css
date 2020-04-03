@@ -16,3 +16,10 @@ body {
     background-position: center;
     background-color: rgb(20, 20, 20);
 }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}

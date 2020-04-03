@@ -13393,6 +13393,13 @@ body {
   background-color: rgb(20, 20, 20);
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
