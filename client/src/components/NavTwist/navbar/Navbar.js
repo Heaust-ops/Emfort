@@ -25,13 +25,13 @@ export class Navbar extends Component {
         </span>
 
        <ul style={{left: '5 em', bottom: '0'}} className={`transform ${this.props.turn ? '' : '-translate-x-64'} py-3 fixed text-white duration-500 m-0 p-0 list-none`}>
-         <li className='pb-5 pl-4'><button className={`focus:text-red-900 hover:text-red-600`}><i className='fa fa-home fa-2x'></i> Home</button></li>
-         <li className='pb-5 pl-4'><button className={`focus:text-red-900 hover:text-red-600`}><i className='fa fa-sign-in fa-2x'></i> Login</button></li>
-         <li className='pb-5 pl-4'><button className={`focus:text-red-900 hover:text-red-600`}><i className='fa fa-user-plus fa-2x'></i> Register</button></li>
-         <li className='pb-5 pl-4 hidden'><button className={`focus:text-red-900 hover:text-red-600`}><i className='fa fa-user fa-2x'></i> Profile</button></li>
-         <li className='pb-5 pl-4 hidden'><button className={`focus:text-red-900 hover:text-red-600`}><i className='fa fa-money fa-2x'></i> Assets</button></li>
-         <li className='pb-5 pl-4'><button className={`focus:text-red-900 hover:text-red-600`}><i className='fa fa-envelope-open fa-2x'></i> Contact Us</button></li>
-         <li className='mb-20 pb-5 pl-5'><span><SearchBar></SearchBar></span></li>
+         <li className={`pb-5 pl-4 ${`hover:rotate-30 duration-200`}`}><button className={`hover:text-red-600`}><i className='fa fa-home fa-2x'></i> Home</button></li>
+         <li className='pb-5 pl-4'><button className={`hover:text-red-600`}><i className='fa fa-sign-in fa-2x'></i> Login</button></li>
+         <li className='pb-5 pl-4'><button className={`hover:text-red-600`}><i className='fa fa-user-plus fa-2x'></i> Register</button></li>
+         <li className='pb-5 pl-4 hidden'><button className={`hover:text-red-600`}><i className='fa fa-user fa-2x'></i> Profile</button></li>
+         <li className='pb-5 pl-4 hidden'><button className={`hover:text-red-600`}><i className='fa fa-money fa-2x'></i> Assets</button></li>
+         <li className='pb-5 pl-4'><button className={`hover:text-red-600`}><i className='fa fa-envelope-open fa-2x'></i> Contact Us</button></li>
+         <li className='mb-20 pb-5 pl-5 srch'><span><SearchBar></SearchBar></span></li>
        </ul>
       </React.Fragment>
     );

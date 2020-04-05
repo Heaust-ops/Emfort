@@ -1,4 +1,31 @@
-li {
-    text-decoration: none;
-    margin-bottom: 5 rem;
+li:not(.srch) {
+  text-decoration: none;
+  margin-bottom: 5 rem;
+  clear: both;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+li:not(.srch) {  
+    pointer-events: none;
+}
+
+button {
+    pointer-events: auto;
+}
+
+li:hover:not(.srch) {
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-transform: translate(1rem);
+  -moz-transform: translate(1rem);
+  -o-transform: translate(1rem);
+  -ms-transform: translate(1rem);
+  transform: translate(1rem);
 }
