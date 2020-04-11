@@ -15,10 +15,10 @@ export class Main extends Component {
       <div
       onClick={this.onClickToggleTurn}
       style={this.props.style}
-        className={`origin-top-left mt-8 text-center overflow-y-auto duration-500 text-white transform ${this.props.turn}`}
+        className={`origin-top-left text-center overflow-y-auto duration-500 text-white transform ${this.props.turn}`}
       >
 
-        <Home className='mt-10'></Home>
+        <Home className=''></Home>
         
       </div>
     );

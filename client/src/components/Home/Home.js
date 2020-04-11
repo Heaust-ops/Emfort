@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Swiper from "react-id-swiper";
 import "swiper/css/swiper.css";
+import Parallax from 'react-rellax';
+import './Home.css';
 
 export class Home extends Component {
   render() {
@@ -18,34 +20,16 @@ export class Home extends Component {
 
     return (
       <div className={`${this.props.className}`}>
-        <div className={`w-2/3 h-64 mx-auto`}>
-          <Swiper {...params}>
-            <div className={`text-white  text-center`}>
-              <div className="p-5">
-                <img className={`w-1/3 block mx-auto`} src={`${image_G}`}></img>
-              </div>
-              <div>{lorem}</div>
-            </div>
-            <div className={`text-white  text-center`}>
-              <div className="p-5">
-                <img className={`w-1/3 block mx-auto`} src={`${image_G}`}></img>
-              </div>
-              <div>{lorem}</div>
-            </div>
-            <div className={`text-white  text-center`}>
-              <div className="p-5">
-                <img className={`w-1/3 block mx-auto`} src={`${image_G}`}></img>
-              </div>
-              <div>{lorem}</div>
-            </div>
-            <div className={`text-white  text-center`}>
-              <div className="p-5">
-                <img className={`w-1/3 block mx-auto`} src={`${image_G}`}></img>
-              </div>
-              <div>{lorem}</div>
-            </div>
-          </Swiper>
-        </div>
+        
+<div style={{backgroundImage: `url("/images/silhouette.jpg")`}} className="bg-image w-screen h-screen"></div>
+
+<div className="bg-text">
+  <h2>Welcome to Emfort</h2>
+  <br></br>
+  <h1 style={{fontSize:"2.75rem"}}>I am Heaust Azure</h1>
+  <br></br>
+  <p>and this is a generic eCom Website</p>
+</div>
       </div>
     );
   }
