@@ -2,3 +2,6 @@ export const GET_ITEMS = 'GET_ITEMS';
 export const ADD_ITEM = 'ADD_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
 export const TOGGLE_TURN = 'TOGGLE_TURN';
+export const TOGGLE2LOGIN = 'TOGGLE2LOGIN';
+export const TOGGLE2REGISTER = 'TOGGLE2REGISTER';
+export const RESET_LOGIN_REGISTER = 'RESET_LOGIN_REGISTER';

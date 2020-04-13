@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getItems, toggleTurn } from "../../actions/turnActions";
+import {toggleTurn} from "../../actions/turnActions";
+import {toggle2Login, toggle2Register, resetLoginRegister } from "../../actions/loginRegisterActions";
 import Home from '../Home/Home';
+import './Main.css';
 
 export class Main extends Component {
 
@@ -13,6 +15,7 @@ export class Main extends Component {
   render() {
     return (
       <div
+      id="Main"
       onClick={this.onClickToggleTurn}
       style={this.props.style}
         className={`origin-top-left text-center overflow-y-auto duration-500 text-white transform ${this.props.turn}`}
@@ -26,13 +29,17 @@ export class Main extends Component {
 }
 
 Main.propTypes = {
-  getItems: PropTypes.func.isRequired,
   toggleTurn: PropTypes.func.isRequired,
-  turn: PropTypes.string.isRequired
+  toggle2Login: PropTypes.func.isRequired,
+  toggle2Register: PropTypes.func.isRequired,
+  resetLoginRegister: PropTypes.func.isRequired,
+  turn: PropTypes.string.isRequired,
+  authForm: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
-  turn: state.navTwist.turn
+  turn: state.navTwist.turn,
+  authForm: state.loginRegister.authForm
 });
 
-export default connect(mapStateToProps, {getItems, toggleTurn })(Main);
+export default connect(mapStateToProps, {toggleTurn, toggle2Login, toggle2Register, resetLoginRegister })(Main);

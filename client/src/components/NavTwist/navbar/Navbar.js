@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getItems, toggleTurn } from '../../../actions/turnActions';
+import { toggleTurn } from '../../../actions/turnActions';
+import {toggle2Login, toggle2Register, resetLoginRegister } from "../../../actions/loginRegisterActions";
 import './Navbar.css';
 import SearchBar from '../searchbar/SearchBar';
 export class Navbar extends Component {
-
-  componentDidMount() {
-    this.props.getItems();
-  }
-
+  
   onClickToggleTurn = () => {
     this.props.toggleTurn();
   }
@@ -39,13 +36,17 @@ export class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-  getItems: PropTypes.func.isRequired,
   toggleTurn: PropTypes.func.isRequired,
-  turn: PropTypes.string.isRequired
-}
+  toggle2Login: PropTypes.func.isRequired,
+  toggle2Register: PropTypes.func.isRequired,
+  resetLoginRegister: PropTypes.func.isRequired,
+  turn: PropTypes.string.isRequired,
+  authForm: PropTypes.string.isRequired
+};
 
-const mapStateToProps = (state) => ({
-  turn: state.navTwist.turn
-})
+const mapStateToProps = state => ({
+  turn: state.navTwist.turn,
+  authForm: state.loginRegister.authForm
+});
 
-export default connect(mapStateToProps, {getItems, toggleTurn})(Navbar);
+export default connect(mapStateToProps, {toggleTurn, toggle2Login, toggle2Register, resetLoginRegister })(Navbar);

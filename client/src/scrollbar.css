@@ -1,0 +1,70 @@
+:root {
+  scrollbar-color: rgb(122, 153, 217) rgb(46, 54, 69) !important;
+  scrollbar-width: 4rem !important;
+}
+
+#App::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgb(24, 38, 49);
+  border-radius: 0.5rem;
+  box-shadow: black;
+}
+
+#App::-webkit-scrollbar {
+  width: 0.5rem;
+  background-color: rgb(24, 38, 49);
+}
+
+#App::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.44, rgb(122, 153, 217)),
+    color-stop(0.72, rgb(73, 125, 189)),
+    color-stop(0.86, rgb(28, 58, 148))
+  );
+}
+
+#App::-o-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgb(24, 38, 49);
+  border-radius: 0.5rem;
+  box-shadow: black;
+}
+
+#App::-o-scrollbar {
+  width: 0.5rem;
+  background-color: rgb(24, 38, 49);
+}
+
+#App::-o-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-image: -o-linear-gradient(
+    top,
+    rgb(122, 153, 217),
+    rgb(28, 58, 148)
+  );
+}
+
+#App::-ms-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgb(24, 38, 49);
+  border-radius: 0.5rem;
+  box-shadow: black;
+}
+
+#App::-ms-scrollbar {
+  width: 0.5rem;
+  background-color: rgb(24, 38, 49);
+}
+
+#App::-ms-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-image: -ms-linear-gradient(
+    top,
+    rgb(122, 153, 217),
+    rgb(28, 58, 148)
+  );
+}

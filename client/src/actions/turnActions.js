@@ -1,13 +1,9 @@
-import { GET_ITEMS, TOGGLE_TURN } from './types';
-
-export const getItems = () => {
-    return {
-        type: GET_ITEMS
-    };
-};
+import {
+  TOGGLE_TURN,
+} from "./types";
 
 export const toggleTurn = () => {
-    return {
-        type: TOGGLE_TURN
-    };
+  return {
+    type: TOGGLE_TURN,
+  };
 };

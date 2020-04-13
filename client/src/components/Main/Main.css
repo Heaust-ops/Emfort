@@ -1,0 +1,7 @@
+#Main.login_register_active {
+  -webkit-filter: blur(0.5rem);
+  -moz-filter: blur(0.5rem);
+  -o-filter: blur(0.5rem);
+  -ms-filter: blur(0.5rem);
+  filter: blur(0.5rem);
+}
