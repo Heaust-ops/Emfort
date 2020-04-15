@@ -13,9 +13,9 @@ function App() {
     <Provider store={store}>
     <div id="App" className='App overflow-x-hidden h-screen'>
       <Navbar></Navbar>
-      <LoginRegister className="fixed top-0 right-0 w-3/4 z-10 h-full"></LoginRegister>
+      <LoginRegister className="noselect fixed top-0 right-0 w-3/4 z-10 h-full"></LoginRegister>
       <Main style={{height: '200%'}}></Main>
-      <Footer></Footer>
+      <Footer className="noselect"></Footer>
     </div>
     </Provider>
   );

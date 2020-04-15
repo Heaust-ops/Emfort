@@ -4,4 +4,5 @@
   -o-filter: blur(0.5rem);
   -ms-filter: blur(0.5rem);
   filter: blur(0.5rem);
+  transition: 0.5s;
 }

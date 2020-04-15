@@ -13356,6 +13356,14 @@ button:focus {
   outline: none;
 }
 
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

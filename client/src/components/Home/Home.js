@@ -23,12 +23,12 @@ export class Home extends Component {
         
 <div style={{backgroundImage: `url("/images/silhouette.jpg")`}} className="bg-image w-screen h-screen"></div>
 
-<div className="bg-text">
+<div className="noselect bg-text">
   <h2>Welcome to Emfort</h2>
   <br></br>
   <h1 style={{fontSize:"2.75rem"}}>I am Heaust Azure</h1>
   <br></br>
-  <p>and this is a generic eCom Website</p>
+  <p>and this is a minimalist approach to an eCom Website</p>
 </div>
       </div>
     );
