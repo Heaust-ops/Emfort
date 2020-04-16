@@ -1,12 +1,11 @@
-#login_heading:hover {
-    letter-spacing: 0.8rem;
-    transition: 0.5s ease-out;
-}
-
 .login_input {
     border: 0.2rem solid rgba(39, 187, 255, 0.3);
 }
 
 .login_input:focus {
     border: 0.2rem solid rgb(114, 210, 255);
+}
+
+#LoginForm {
+    transform: translateY(2rem);
 }

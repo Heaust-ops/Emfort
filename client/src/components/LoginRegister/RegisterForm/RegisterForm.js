@@ -1,19 +1,38 @@
-import React, { Component } from 'react'
-import './RegisterForm.css';
+import React, { Component } from "react";
+import "./RegisterForm.css";
 
 export class RegisterForm extends Component {
-    render() {
-        return (
-            <div id='RegisterForm' className={`${this.props.className}`}>
-                <h1
+  state = {
+    registerHeadingSpread: false,
+  };
+
+  headingSpread = () => {
+    this.setState({ registerHeadingSpread: true });
+  };
+
+  headingUnSpread = () => {
+    this.setState({ registerHeadingSpread: false });
+  };
+
+  render() {
+    return (
+      <div id="RegisterForm" className={`${this.props.className}`}>
+        <h1
           id="register_heading"
-          style={{transform : 'translateX(-2.5rem)'}}
-          className="cursor-default text-4xl duration-500 tracking-widest"
-        >REGISTER</h1>
-         <br></br>
+          onMouseEnter={this.headingSpread}
+          onMouseLeave={this.headingUnSpread}
+          style={{ transform: "translateX(-2.5rem)" }}
+          className={`${
+            this.state.registerHeadingSpread ? "spread" : ""
+          } LoginRegisterForm_heading cursor-default text-4xl duration-500 tracking-widest`}
+        >
+          REGISTER
+        </h1>
+        <br></br>
         <input
           size="15"
-          style={{transform : 'translateX(-10rem)'}}
+          spellCheck={false}
+          style={{ transform: "translateX(-10rem)" }}
           className="text-3xl register_input py-1 duration-500 tracking-widest text-center bg-transparent rounded-full"
           type="text"
           placeholder="USERNAME"
@@ -22,7 +41,8 @@ export class RegisterForm extends Component {
         <br></br>
         <input
           size="20"
-          style={{transform : 'translateX(-8rem)'}}
+          spellCheck={false}
+          style={{ transform: "translateX(-8rem)" }}
           className="text-3xl register_input py-1 duration-500 tracking-widest text-center bg-transparent rounded-full"
           type="text"
           placeholder="Email@Domain.com"
@@ -31,14 +51,27 @@ export class RegisterForm extends Component {
         <br></br>
         <input
           size="15"
-          style={{transform : 'translateX(-2rem)'}}
+          spellCheck={false}
+          style={{ transform: "translateX(-2rem)" }}
           className="text-3xl register_input py-1 duration-500 tracking-widest text-center bg-transparent rounded-full"
           type="password"
           placeholder="PASSWORD"
         ></input>
-            </div>
-        )
-    }
+        <br></br>
+        <br></br>
+        <button
+        id="register_submit"
+          onMouseEnter={this.headingSpread}
+          onMouseLeave={this.headingUnSpread}
+          onClick={this.check}
+          style={{ transform: "translateX(6.7rem)" }}
+          className="text-3xl LoginRegisterForm_submit mt-2 text-gray-600 hover:text-white py-2 px-6 rounded-full rounded-bl-full duration-500 tracking-widest text-center bg-transparent"
+        >
+          PROCEED
+        </button>
+      </div>
+    );
+  }
 }
 
-export default RegisterForm
+export default RegisterForm;

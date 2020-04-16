@@ -22,3 +22,21 @@
   padding: 20px;
   text-align: center;
 }
+
+.bg-text.focused {
+  width: 40%;
+  transform: rotate(360deg);
+  transition: 0.5s;
+}
+
+.bg-text.focused > p {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.bg-text.focused > h2 {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}

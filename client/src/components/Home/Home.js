@@ -5,6 +5,14 @@ import Parallax from 'react-rellax';
 import './Home.css';
 
 export class Home extends Component {
+  state = {
+    bgTextToggle: false
+  }
+
+  bgTextToggle = () => {
+    this.setState({bgTextToggle: !this.state.bgTextToggle});
+  }
+
   render() {
     const params = {
       navigation: {
@@ -23,7 +31,7 @@ export class Home extends Component {
         
 <div style={{backgroundImage: `url("/images/silhouette.jpg")`}} className="bg-image w-screen h-screen"></div>
 
-<div className="noselect bg-text">
+<div onClick={this.bgTextToggle} className={`${this.state.bgTextToggle ? 'focused' : ''} noselect duration-500 bg-text rounded-full`}>
   <h2>Welcome to Emfort</h2>
   <br></br>
   <h1 style={{fontSize:"2.75rem"}}>I am Heaust Azure</h1>

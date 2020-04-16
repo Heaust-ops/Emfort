@@ -4,6 +4,25 @@
   border-left: 0.2rem solid rgb(202, 214, 255);
 }
 
+.LoginRegisterForm_heading.spread {
+  letter-spacing: 0.8rem;
+  transition: 0.5s ease-out;
+}
+
+.LoginRegisterForm_submit {
+  border: 0.2rem solid rgba(39, 187, 255, 0.3);
+  width: 1rem;
+}
+
+.LoginRegisterForm_submit:hover {
+  border: 0.2rem solid rgb(114, 210, 255);
+ transition: 0.5s;
+}
+
+.LoginRegisterForm_submit:hover {
+  transition: 0.5s ease-out;
+}
+
 #LoginRegister.deactive {
   transform: translate(130%, 0) skewX(-8deg);
   transition: 0.5s ease-in;
@@ -15,7 +34,7 @@
 }
 
 #LoginRegister_forms {
-  transform: skewX(8deg) translateX(25%) translateY(10rem);
+  transform: skewX(8deg) translateX(25%) translateY(7rem);
 }
 
 
@@ -35,7 +54,7 @@
   }
 
   #LoginRegister_forms {
-    transform: skewX(8deg) translateX(30%) translateY(10rem);
+    transform: skewX(8deg) translateX(30%) translateY(7rem);
   }
 }
 
@@ -50,7 +69,7 @@
   }
 
   #LoginRegister_forms {
-    transform: skewX(8deg) translateX(20%) translateY(10rem);
+    transform: skewX(8deg) translateX(20%) translateY(7rem);
   }
 }
 
