@@ -30,7 +30,7 @@ export class Main extends Component {
         style={this.props.style}
         className={`${this.props.authForm ? 'login_register_active' : ''} origin-top-left text-center overflow-y-auto duration-500 text-white transform ${this.props.turn}`}
       >
-        <Home className=""></Home>
+        <Home className={`${this.props.authForm || this.props.turn ? 'pointer-events-none' : ''}`}></Home>
       </div>
     );
   }
