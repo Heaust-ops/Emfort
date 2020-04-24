@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
-const items = require('./rotues/api/items');
+const config = require("config");
 
 const app = express();
 
@@ -9,16 +8,22 @@ const app = express();
 app.use(express.json());
 
 // DB config
-const db = require("./config/keys").mongoURI;
+const db = config.get("mongoURI");
 
 // Connect to mongo
 mongoose
-  .connect(db)
+  .connect(db, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
   .then(() => console.log("MongoDB Connected..."))
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
 
 // Use routes
-app.use('/api/items', items);
+app.use("/api/items", require("./rotues/api/items"));
+app.use("/api/users", require("./rotues/api/users"));
+app.use("/api/auth", require("./rotues/api/auth"));
 
 const port = process.env.PORT || 5000;
 

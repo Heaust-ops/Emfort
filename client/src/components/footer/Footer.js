@@ -4,11 +4,16 @@ import PropTypes from "prop-types";
 import "./Footer.css";
 
 export class Footer extends Component {
+  static propTypes = {
+    authForm: PropTypes.string.isRequired,
+  };
   render() {
     return (
       <footer
         id="Footer"
-        className={`${this.props.authForm ? 'login_register_active' : ''} ${this.props.className} text-sm absolute bottom-0 inset-x-0 hidden sm:block duration-300 hover:opacity-0`}
+        className={`${this.props.authForm ? "login_register_active" : ""} ${
+          this.props.className
+        } text-sm absolute bottom-0 inset-x-0 hidden sm:block duration-300 hover:opacity-0`}
       >
         <div
           id="footer"
@@ -22,10 +27,6 @@ export class Footer extends Component {
     );
   }
 }
-
-Footer.propTypes = {
-  authForm: PropTypes.string.isRequired,
-};
 
 const mapStateToProps = (state) => ({
   authForm: state.loginRegister.authForm,

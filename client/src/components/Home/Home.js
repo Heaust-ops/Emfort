@@ -4,7 +4,9 @@ import './Home.css';
 
 export class Home extends Component {
   state = {
-    bgTextToggle: false
+    bgTextToggle: false,
+    vw: window.innerWidth,
+    vh: window.innerHeight
   }
 
   bgTextToggle = () => {
@@ -16,7 +18,7 @@ export class Home extends Component {
     return (
       <div className={`${this.props.className}`}>
         
-<div style={{backgroundImage: `url("/images/silhouette.jpg")`}} className="bg-image w-screen h-screen"></div>
+<div style={{backgroundImage: `url("https://res.cloudinary.com/heaust/image/upload/w_${this.state.vw},h_${this.state.vh}/v1587117201/Emfort/silhouette_dgk4ha.jpg")`}} className="bg-image w-screen h-screen"></div>
 
 <div onClick={this.bgTextToggle} className={`${this.state.bgTextToggle ? 'focused' : ''} noselect duration-500 bg-text rounded-full`}>
   <h2>Welcome to Emfort</h2>

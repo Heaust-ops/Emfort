@@ -1,11 +1,11 @@
-.login_input {
-    border: 0.2rem solid rgba(39, 187, 255, 0.3);
+.login_input:not(.warning_blink) {
+  border: 0.2rem solid rgba(39, 187, 255, 0.3);
 }
 
 .login_input:focus {
-    border: 0.2rem solid rgb(114, 210, 255);
+  border: 0.2rem solid rgb(114, 210, 255);
 }
 
 #LoginForm {
-    transform: translateY(2rem);
+  transform: translateY(2rem);
 }

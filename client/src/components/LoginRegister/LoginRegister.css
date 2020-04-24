@@ -16,7 +16,7 @@
 
 .LoginRegisterForm_submit:hover {
   border: 0.2rem solid rgb(114, 210, 255);
- transition: 0.5s;
+  transition: 0.5s;
 }
 
 .LoginRegisterForm_submit:hover {
@@ -37,7 +37,6 @@
   transform: skewX(8deg) translateX(25%) translateY(7rem);
 }
 
-
 #close_login_register {
   background: rgba(39, 187, 255, 0.3);
 }
@@ -45,6 +44,10 @@
 #close_login_register:hover {
   background: rgba(39, 187, 255, 1);
   padding-left: 2rem;
+}
+
+.warning_blink {
+  border: 0.2rem solid rgb(255, 0, 0);
 }
 
 @media screen and (max-width: 1150px) {
@@ -64,7 +67,7 @@
     transition: 0.5s ease-out;
   }
 
-  #LoginRegister{
+  #LoginRegister {
     width: 150vw;
   }
 

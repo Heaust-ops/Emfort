@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { toggleTurn } from "../../../actions/turnActions";
+import { logout } from "../../../actions/authActions";
 import {
   toggle2Login,
   toggle2Register,
@@ -9,7 +10,19 @@ import {
 } from "../../../actions/loginRegisterActions";
 import "./Navbar.css";
 import SearchBar from "../searchbar/SearchBar";
+
 export class Navbar extends Component {
+  static propTypes = {
+    toggleTurn: PropTypes.func.isRequired,
+    toggle2Login: PropTypes.func.isRequired,
+    toggle2Register: PropTypes.func.isRequired,
+    resetLoginRegister: PropTypes.func.isRequired,
+    turn: PropTypes.string.isRequired,
+    authForm: PropTypes.string.isRequired,
+    isAuthenticated: PropTypes.bool,
+    logout: PropTypes.func.isRequired,
+  };
+
   onClickToggleTurn = () => {
     this.props.toggleTurn();
   };
@@ -63,33 +76,52 @@ export class Navbar extends Component {
               <i className="fa fa-home fa-2x"></i> Home
             </button>
           </li>
-          <li className="pb-5 pl-4">
-            <button
-              onClick={() => {
-                this.onClickToggle2Login();
-                this.onClickTurnClose();
-              }}
-              className={`hover:text-red-600`}
-            >
-              <i className="fa fa-sign-in fa-2x"></i> Login
-            </button>
-          </li>
-          <li className="pb-5 pl-4">
-            <button
-              onClick={() => {
-                this.onClickToggle2Register();
-                this.onClickTurnClose();
-              }}
-              className={`hover:text-red-600`}
-            >
-              <i className="fa fa-user-plus fa-2x"></i> Register
-            </button>
-          </li>
-          <li className="pb-5 pl-4 hidden">
-            <button className={`hover:text-red-600`}>
-              <i className="fa fa-user fa-2x"></i> Profile
-            </button>
-          </li>
+          {this.props.isAuthenticated ? (
+            <React.Fragment>
+              <li className="pb-5 pl-4">
+                <button className={`hover:text-red-600`}>
+                  <i className="fa fa-user fa-2x"></i> Profile
+                </button>
+              </li>
+              <li className="pb-5 pl-4">
+                <button
+                  onClick={() => {
+                    this.props.logout();
+                    this.onClickTurnClose();
+                  }}
+                  className={`hover:text-red-600`}
+                >
+                  <i className="fa fa-sign-out fa-2x"></i> Log Out
+                </button>
+              </li>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              <li className="pb-5 pl-4">
+                <button
+                  onClick={() => {
+                    this.onClickToggle2Login();
+                    this.onClickTurnClose();
+                  }}
+                  className={`hover:text-red-600`}
+                >
+                  <i className="fa fa-sign-in fa-2x"></i> Login
+                </button>
+              </li>
+              <li className="pb-5 pl-4">
+                <button
+                  onClick={() => {
+                    this.onClickToggle2Register();
+                    this.onClickTurnClose();
+                  }}
+                  className={`hover:text-red-600`}
+                >
+                  <i className="fa fa-user-plus fa-2x"></i> Register
+                </button>
+              </li>
+            </React.Fragment>
+          )}
+
           <li className="pb-5 pl-4 hidden">
             <button className={`hover:text-red-600`}>
               <i className="fa fa-money fa-2x"></i> Assets
@@ -111,18 +143,10 @@ export class Navbar extends Component {
   }
 }
 
-Navbar.propTypes = {
-  toggleTurn: PropTypes.func.isRequired,
-  toggle2Login: PropTypes.func.isRequired,
-  toggle2Register: PropTypes.func.isRequired,
-  resetLoginRegister: PropTypes.func.isRequired,
-  turn: PropTypes.string.isRequired,
-  authForm: PropTypes.string.isRequired,
-};
-
 const mapStateToProps = (state) => ({
   turn: state.navTwist.turn,
   authForm: state.loginRegister.authForm,
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps, {
@@ -130,4 +154,5 @@ export default connect(mapStateToProps, {
   toggle2Login,
   toggle2Register,
   resetLoginRegister,
+  logout,
 })(Navbar);
