@@ -90,10 +90,6 @@ export class LoginForm extends Component {
     this.props.login({ username, password });
   };
 
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
   render() {
     return (
       <div id="LoginForm" className={`${this.props.className}`}>
@@ -111,18 +107,14 @@ export class LoginForm extends Component {
         <br></br>
         <input
           size="15"
+          value={this.state.username}
           maxLength={10}
           style={{ transform: "translateX(-8rem)" }}
           onChange={(event) => {
             event.persist();
-            this.setState(
-              {
-                username: event.target.value.replace(/[^A-Za-z0-9_.]/gm, ""),
-              },
-              () => {
-                event.target.value = this.state.username;
-              }
-            );
+            this.setState({
+              username: event.target.value.replace(/[^A-Za-z0-9_.]/gm, ""),
+            });
           }}
           spellCheck={false}
           className={`${
@@ -135,6 +127,7 @@ export class LoginForm extends Component {
         <br></br>
         <input
           size="15"
+          value={this.state.password}
           maxLength={18}
           style={{ transform: "translateX(-6rem)" }}
           onChange={(event) => {

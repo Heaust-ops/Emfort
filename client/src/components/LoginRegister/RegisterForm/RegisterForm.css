@@ -1,12 +1,20 @@
 #register_heading:hover {
-    letter-spacing: 0.8rem;
-    transition: 0.5s ease-out;
+  letter-spacing: 0.8rem;
+  transition: 0.5s ease-out;
+}
+
+.pass_show_eye {
+  color: rgba(39, 187, 255, 0.1);
+}
+
+.pass_show_eye:hover {
+  color: rgb(114, 210, 255);
 }
 
 .register_input {
-    border: 0.2rem solid rgba(39, 187, 255, 0.3);
+  border: 0.2rem solid rgba(39, 187, 255, 0.3);
 }
 
 .register_input:focus {
-    border: 0.2rem solid rgb(114, 210, 255);
+  border: 0.2rem solid rgb(114, 210, 255);
 }

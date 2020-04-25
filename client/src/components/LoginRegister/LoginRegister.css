@@ -9,6 +9,19 @@
   transition: 0.5s ease-out;
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+#loading_logo {
+  animation: spin 2s linear infinite;
+}
+
 .LoginRegisterForm_submit {
   border: 0.2rem solid rgba(39, 187, 255, 0.3);
   width: 1rem;
@@ -50,7 +63,7 @@
   border: 0.2rem solid rgb(255, 0, 0);
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1190px) {
   #LoginRegister.active {
     transform: translate(10%, 0) skewX(-8deg);
     transition: 0.5s ease-out;
@@ -61,7 +74,7 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1090px) {
   #LoginRegister.active {
     transform: translate(40%, 0) skewX(-8deg);
     transition: 0.5s ease-out;

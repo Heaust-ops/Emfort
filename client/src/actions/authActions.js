@@ -9,6 +9,7 @@ import {
   LOGOUT_SUCCESS,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
+  REGISTER_START,
 } from "./types";
 
 // Check Token and Load User
@@ -34,6 +35,7 @@ export const loadUser = () => (dispatch, getState) => {
 
 // Register User
 export const register = ({ username, email, password }) => (dispatch) => {
+  dispatch({ type: REGISTER_START });
   // Headers
   const config = {
     headers: {

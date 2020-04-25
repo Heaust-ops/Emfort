@@ -73,8 +73,7 @@ router.post("/", (req, res) => {
                 )
                   .then((msgid) => {
                     res.json({
-                      msg:
-                        "Please activate your account via the email we just sent!",
+                      msg: "Registration Successful",
                     });
                   })
                   .catch(console.error);
