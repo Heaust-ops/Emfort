@@ -8,6 +8,9 @@ import {
   resetLoginRegister,
 } from "../../actions/loginRegisterActions";
 import Home from "../Home/Home";
+import Contact from "../contact/Contact";
+import Market from "../market/Market";
+import Profile from "../profile/Profile";
 import "./Main.css";
 
 export class Main extends Component {
@@ -39,15 +42,26 @@ export class Main extends Component {
         style={this.props.style}
         className={`${
           this.props.authForm ? "login_register_active" : ""
-        } origin-top-left text-center overflow-y-auto duration-500 text-white transform ${
+        } origin-top-left text-center overflow-hidden duration-500 text-white transform ${
           this.props.turn
         }`}
       >
-        <Home
-          className={`${
-            this.props.authForm || this.props.turn ? "pointer-events-none" : ""
-          }`}
-        ></Home>
+        {
+          {
+            home: (
+              <Home
+                className={`${
+                  this.props.authForm || this.props.turn
+                    ? "pointer-events-none"
+                    : ""
+                }`}
+              ></Home>
+            ),
+            profile: <Profile className=""></Profile>,
+            contact: <Contact className=""></Contact>,
+            market: <Market className=""></Market>,
+          }[this.props.page]
+        }
       </div>
     );
   }
@@ -56,6 +70,7 @@ export class Main extends Component {
 const mapStateToProps = (state) => ({
   turn: state.navTwist.turn,
   authForm: state.loginRegister.authForm,
+  page: state.misc.page,
 });
 
 export default connect(mapStateToProps, {

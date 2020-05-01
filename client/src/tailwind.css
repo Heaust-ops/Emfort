@@ -6,65 +6,63 @@
 
 @import "./scrollbar.css";
 
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
-html {font-size:22px;}
+html {
+  font-size: 22px;
+}
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-position: center;
-    background-color: rgb(20, 20, 20);
-    
+  background-position: center;
+  background-color: rgb(20, 20, 20);
 }
 
-
-#App::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: rgb(24, 38, 49);
-    border-radius: 0.75rem;
-    box-shadow: black;
+#App::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgb(24, 38, 49);
+  border-radius: 0.75rem;
+  box-shadow: black;
 }
 
-#App::-webkit-scrollbar
-{
-	width: 0.75rem;
-	background-color: rgb(24, 38, 49);
+#App::-webkit-scrollbar {
+  width: 0.75rem;
+  background-color: rgb(24, 38, 49);
 }
 
-#App::-webkit-scrollbar-thumb
-{
-	border-radius: 0.5rem;
-	background-image: -webkit-gradient(linear,
-									   left bottom,
-									   left top,
-									   color-stop(0.44, rgb(122,153,217)),
-									   color-stop(0.72, rgb(73,125,189)),
-									   color-stop(0.86, rgb(28,58,148)));
+#App::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.44, rgb(122, 153, 217)),
+    color-stop(0.72, rgb(73, 125, 189)),
+    color-stop(0.86, rgb(28, 58, 148))
+  );
 }
-
 
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
+  outline: none;
 }
 
 * {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .noselect {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

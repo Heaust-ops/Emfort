@@ -8,6 +8,12 @@ const UserSchema = new Schema({
     required: true,
     unique: true,
   },
+  displayPicture: {
+    type: String,
+    required: true,
+    default:
+      "https://res.cloudinary.com/heaust/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1587886495/HeaustBrand/Logos/logo4_y3zrum.svg",
+  },
   email: {
     type: String,
     required: true,

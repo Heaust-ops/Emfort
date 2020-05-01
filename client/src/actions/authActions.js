@@ -10,7 +10,14 @@ import {
   REGISTER_FAIL,
   REGISTER_SUCCESS,
   REGISTER_START,
+  CLEAR_AUTH,
 } from "./types";
+
+export const clearAuth = () => {
+  return {
+    type: CLEAR_AUTH,
+  };
+};
 
 // Check Token and Load User
 export const loadUser = () => (dispatch, getState) => {

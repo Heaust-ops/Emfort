@@ -2,12 +2,19 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { toggleTurn } from "../../../actions/turnActions";
+import { pageTo } from "../../../actions/miscActions";
 import { logout } from "../../../actions/authActions";
 import {
   toggle2Login,
   toggle2Register,
   resetLoginRegister,
 } from "../../../actions/loginRegisterActions";
+import {
+  PAGETO_HOME,
+  PAGETO_CONTACT,
+  PAGETO_PROFILE,
+  //  PAGETO_MARKET,
+} from "../../../actions/types";
 import "./Navbar.css";
 import SearchBar from "../searchbar/SearchBar";
 
@@ -72,20 +79,33 @@ export class Navbar extends Component {
           } py-3 fixed text-white duration-500 m-0 p-0 list-none`}
         >
           <li className={`pb-5 pl-4 ${`hover:rotate-30 duration-200`}`}>
-            <button className={`hover:text-red-600`}>
+            <button
+              className={`hover:text-red-600`}
+              onClick={() => {
+                this.props.pageTo(PAGETO_HOME);
+                this.onClickTurnClose();
+              }}
+            >
               <i className="fa fa-home fa-2x"></i> Home
             </button>
           </li>
           {this.props.isAuthenticated ? (
             <React.Fragment>
               <li className="pb-5 pl-4">
-                <button className={`hover:text-red-600`}>
+                <button
+                  className={`hover:text-red-600`}
+                  onClick={() => {
+                    this.props.pageTo(PAGETO_PROFILE);
+                    this.onClickTurnClose();
+                  }}
+                >
                   <i className="fa fa-user fa-2x"></i> Profile
                 </button>
               </li>
               <li className="pb-5 pl-4">
                 <button
                   onClick={() => {
+                    this.props.pageTo(PAGETO_HOME);
                     this.props.logout();
                     this.onClickTurnClose();
                   }}
@@ -128,7 +148,13 @@ export class Navbar extends Component {
             </button>
           </li>
           <li className="pb-5 pl-4">
-            <button className={`hover:text-red-600`}>
+            <button
+              className={`hover:text-red-600`}
+              onClick={() => {
+                this.props.pageTo(PAGETO_CONTACT);
+                this.onClickTurnClose();
+              }}
+            >
               <i className="fa fa-envelope-open fa-2x"></i> Contact Us
             </button>
           </li>
@@ -155,4 +181,5 @@ export default connect(mapStateToProps, {
   toggle2Register,
   resetLoginRegister,
   logout,
+  pageTo,
 })(Navbar);

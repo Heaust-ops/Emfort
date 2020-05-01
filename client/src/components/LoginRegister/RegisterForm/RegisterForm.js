@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { register } from "../../../actions/authActions";
+import { register, clearAuth } from "../../../actions/authActions";
 import { clearErrors } from "../../../actions/errorActions";
 import { resetLoginRegister } from "../../../actions/loginRegisterActions";
 import "./RegisterForm.css";
+import { REGISTER_START } from "../../../actions/types";
 
 export class RegisterForm extends Component {
   static propTypes = {
@@ -24,9 +25,10 @@ export class RegisterForm extends Component {
     userBlink: null,
     passBlink: null,
     emailBlink: null,
-    passHolder: `PASSWORD`,
     passShow: null,
   };
+
+  passInput = React.createRef();
 
   componentDidUpdate(prevProps) {
     const { error, regmsg } = this.props;
@@ -49,12 +51,10 @@ export class RegisterForm extends Component {
       this.setState({
         username: "Hi!",
         email: `Please Check Your mail and verify it!`,
-        password: ``,
-        passHolder: "Thank You!",
+        password: "Thank You!",
+        passShow: true,
       });
-      setTimeout(() => {
-        this.setState({ passHolder: `PASSWORD` });
-      }, 10000);
+      this.props.clearAuth();
     }
   }
 
@@ -105,7 +105,7 @@ export class RegisterForm extends Component {
     if (
       !email ||
       !email.match(
-        /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/g
+        /^([a-zA-Z0-9_\-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/g
       )
     ) {
       this.blinkN("emailBlink", 4);
@@ -133,7 +133,12 @@ export class RegisterForm extends Component {
           REGISTER
         </h1>
         <br></br>
-        <div style={{ transform: "translateX(-10rem)" }} className="m-0 p-0">
+        <div
+          style={{ transform: "translateX(-10rem)" }}
+          className={`pr-${
+            this.state.email.length > 19 ? `16` : `3`
+          } m-0 p-0 flex block justify-between`}
+        >
           <input
             size="15"
             value={this.state.username}
@@ -150,11 +155,11 @@ export class RegisterForm extends Component {
             type="text"
             placeholder="USERNAME"
           ></input>
-          {this.props.isLoading === "REGISTER_START" ? (
+          {this.props.isLoading === REGISTER_START ? (
             <img
               id={`loading_logo`}
-              src={`/images/logo.svg`}
-              className={`w-12 h-12 left-0 inline-block`}
+              src={`https://res.cloudinary.com/heaust/image/upload/w_66,h_66/v1587886495/HeaustBrand/Logos/logo4_y3zrum.svg`}
+              className={`w-12 h-12 left-0 loading_logo inline-block`}
               alt="Loading"
             ></img>
           ) : null}
@@ -198,11 +203,15 @@ export class RegisterForm extends Component {
         <br></br>
         <i
           style={{ transform: "translateX(-6rem)" }}
-          onClick={this.togglePassShow}
+          onClick={() => {
+            this.togglePassShow();
+            this.passInput.current.focus();
+          }}
           className={`nav-open text-4xl pass_show_eye mt-1 duration-500 fa fa-eye lg`}
         ></i>
         <input
           size="15"
+          ref={this.passInput}
           value={this.state.password}
           maxLength={18}
           onChange={(event) => {
@@ -214,7 +223,7 @@ export class RegisterForm extends Component {
             this.state.passBlink ? "warning_blink" : null
           } text-3xl register_input py-1 duration-500 tracking-widest text-center bg-transparent rounded-full`}
           type={this.state.passShow ? "text" : "password"}
-          placeholder={this.state.passHolder}
+          placeholder={`PASSWORD`}
         ></input>
         <br></br>
         <br></br>
@@ -254,4 +263,5 @@ export default connect(mapStateToProps, {
   register,
   clearErrors,
   resetLoginRegister,
+  clearAuth,
 })(RegisterForm);
