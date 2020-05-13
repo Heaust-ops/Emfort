@@ -96,6 +96,8 @@ const RegisterForm = (props) => {
       setuserBlink([!userBlink[0], 1, 2 * times]);
     if (state2blink === "passBlink")
       setpassBlink([!passBlink[0], 1, 2 * times]);
+    if (state2blink === "emailBlink")
+      setemailBlink([!emailBlink[0], 1, 2 * times]);
   };
 
   const headingSpread = () => {

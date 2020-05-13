@@ -17,17 +17,17 @@ const App = () => {
     store.dispatch(loadUser());
   }, []);
 
-  useEffect(() => {
-    store.subscribe(() => {
-      let n = 1;
-      if (n === 1) {
-        n = 0;
-        setfullScreen(store.getState().misc.fullScreen, () => {
-          n = 1;
-        });
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   store.subscribe(() => {
+  //     let n = 1;
+  //     if (n === 1) {
+  //       n = 0;
+  //       setfullScreen(store.getState().misc.fullScreen, () => {
+  //         n = 1;
+  //       });
+  //     }
+  //   });
+  // }, []);
 
   return (
     <Provider store={store}>
@@ -36,7 +36,7 @@ const App = () => {
           <TitleHandler />
           <Navbar />
           <LoginRegister className="noselect fixed top-0 right-0 w-3/4 z-10 h-full" />
-          <Main style={{ height: "200%" }} />
+          <Main />
           <Footer className="noselect" />
         </div>
       </Fullscreen>

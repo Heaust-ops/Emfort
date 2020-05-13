@@ -18,7 +18,7 @@ const Home = (props) => {
   const dispatch = useDispatch();
 
   const bgTextToggle = () => {
-    setbgtextToggle(!bgTextToggle);
+    setbgtextToggle(!bgtextToggle);
   };
 
   const updateOnResize = () => {
@@ -65,6 +65,20 @@ const Home = (props) => {
         <h1 style={{ fontSize: "2.75rem" }}>I am Heaust Azure</h1>
         <br></br>
         <p>and this is a minimalist approach to an eCom Website</p>
+      </div>
+      <div
+        onClick={() => {
+          bg2.current.scrollIntoView();
+        }}
+        onWheel={() => {
+          bg2.current.scrollIntoView({ behavior: "smooth" });
+        }}
+        style={{ transform: "translateY(-7rem)" }}
+        className={`noselect cursor-pointer w-16 h-16 text-gray-600 border-gray-600 hover:border-white hover:text-white z-50 duration-500 bg-text-3 rounded-full`}
+      >
+        <h2 className={`text-3xl`}>
+          <i class="fa fa-arrow-down"></i>
+        </h2>
       </div>
       <div
         onClick={() => {
@@ -121,6 +135,25 @@ const Home = (props) => {
           Owner of the<br></br>Photographic Assets
         </p>
         <br></br>
+      </div>
+
+      <div
+        style={{
+          marginTop: "108vh",
+          transform: "translateX(-15rem)",
+          backgroundColor: "rgba(0, 0, 0, 0.1)",
+        }}
+        onClick={() => {
+          bg1.current.scrollIntoView();
+        }}
+        onWheel={() => {
+          bg2.current.scrollIntoView({ behavior: "smooth" });
+        }}
+        className={`noselect cursor-pointer w-16 h-16 text-gray-600 border-gray-600 hover:border-white hover:text-white z-50 duration-500 bg-text-3 rounded-full`}
+      >
+        <h2 className={`text-3xl`}>
+          <i class="fa fa-arrow-up"></i>
+        </h2>
       </div>
     </div>
   );

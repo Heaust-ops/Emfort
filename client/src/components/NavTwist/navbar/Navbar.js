@@ -24,7 +24,7 @@ const Navbar = (props) => {
   const dispatch = useDispatch();
 
   const onClickToggleTurn = () => {
-    toggleTurn();
+    dispatch(toggleTurn());
   };
 
   const onClickTurnClose = () => {

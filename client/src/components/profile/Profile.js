@@ -17,7 +17,7 @@ const Profile = (props) => {
       ></div>
 
       <div
-        style={{ width: "30%" }}
+        style={{ width: "30%", marginTop: "12rem" }}
         className={`noselect duration-500 bg-text-2`}
       >
         <h1 className={`text-3xl text-right`}>user: @{user.username}</h1>
@@ -26,9 +26,19 @@ const Profile = (props) => {
         {user.authority === "atom" ? (
           <>
             <br />
-            <input className={``} placeholder="user" />
-            <input className={``} placeholder="authority" />
-            <button>Change Authority</button>
+            <input
+              className={`text-black my-2 p-2 rounded border-black border-4`}
+              placeholder="user"
+            />
+            <input
+              className={`text-black my-2 p-2 rounded border-black border-4`}
+              placeholder="authority"
+            />
+            <button
+              className={`my-2 p-2 bg-black hover:font-black hover:bg-transparent hover:text-black rounded border-black border-4`}
+            >
+              Change Authority
+            </button>
           </>
         ) : null}
       </div>
