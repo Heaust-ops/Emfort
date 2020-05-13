@@ -21,6 +21,7 @@ const Navbar = (props) => {
   const turn = useSelector((state) => state.navTwist.turn);
   const authForm = useSelector((state) => state.loginRegister.authForm);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
 
   const onClickToggleTurn = () => {
@@ -81,6 +82,14 @@ const Navbar = (props) => {
             <i className="fa fa-home fa-2x"></i> Home
           </button>
         </li>
+        {isAuthenticated &&
+        (user.authority === "atom" || user.authority === "merchant") ? (
+          <li className="pb-5 pl-4">
+            <button className={`hover:text-red-600`}>
+              <i className="fa fa-money fa-2x"></i> Assets
+            </button>
+          </li>
+        ) : null}
         {isAuthenticated ? (
           <>
             <li className="pb-5 pl-4">
@@ -134,11 +143,6 @@ const Navbar = (props) => {
           </>
         )}
 
-        <li className="pb-5 pl-4 hidden">
-          <button className={`hover:text-red-600`}>
-            <i className="fa fa-money fa-2x"></i> Assets
-          </button>
-        </li>
         <li className="pb-5 pl-4">
           <button
             className={`hover:text-red-600`}

@@ -24,6 +24,7 @@ mongoose
 app.use("/api/items", require("./rotues/api/items"));
 app.use("/api/users", require("./rotues/api/users"));
 app.use("/api/auth", require("./rotues/api/auth"));
+app.use("/api/assets", require("./rotues/api/assets"));
 
 const port = process.env.PORT || 5000;
 
