@@ -24,6 +24,8 @@ router.post("/", (req, res) => {
   // Check for existing user
   User.findOne({ username }).then((user) => {
     if (!user) return res.status(400).json({ msg: "User Does Not Exist" });
+    if (user.authority === "unverified")
+      return res.status(400).json({ msg: "Please Verify your email" });
 
     // Validate Password
     bcrypt.compare(password, user.password).then((isMatch) => {

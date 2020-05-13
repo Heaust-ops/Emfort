@@ -1,12 +1,10 @@
-import React, { Component } from "react";
+import React, {  } from "react";
 import "./Contact.css";
 
-export class Contact extends Component {
-  render() {
+const Contact  = (props) => {
     return (
-      <div className={`${this.props.className} text-white`}>Contact page</div>
+      <div className={`${props.className} text-white`}>Contact page</div>
     );
-  }
-}
+  } 
 
 export default Contact;

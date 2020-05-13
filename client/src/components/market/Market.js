@@ -1,12 +1,10 @@
-import React, { Component } from "react";
+import React, {  } from "react";
 import "./Market.css";
 
-export class Market extends Component {
-  render() {
+const Market  = (props) => {
     return (
-      <div className={`${this.props.className} text-white`}>Market page</div>
+      <div className={`${props.className} text-white`}>Market page</div>
     );
-  }
-}
+  } 
 
 export default Market;

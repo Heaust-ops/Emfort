@@ -1,46 +1,47 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
 
-export class TitleHandler extends Component {
-  static propTypes = {
-    turn: PropTypes.string.isRequired,
-    authForm: PropTypes.string.isRequired,
-  };
-
-  toTitleCase = (txt) => {
+const TitleHandler = (props) => {
+  const toTitleCase = (txt) => {
     return txt.replace(/\w\S*/g, (txt) => {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   };
 
-  render() {
-    return (
-      <React.Fragment>
+  const turn = useSelector((state) => state.navTwist.turn);
+  const authForm = useSelector((state) => state.loginRegister.authForm);
+  const page = useSelector((state) => state.misc.page);
+  const user = useSelector((state) => state.auth.user);
+
+  return (
+    <>
+      <Helmet>
+        <title>
+          {
+            {
+              home: "Emfort - Home",
+              contact: "Emfort - Contact Us!",
+              profile: `${
+                user ? `@${user.username} <- Emfort` : "Something went wrong!"
+              }`,
+              market: "Emfort - Market",
+            }[page]
+          }
+        </title>
+      </Helmet>
+      {turn ? (
         <Helmet>
-          <title>{"Emfort - Home"}</title>
+          <title>{"Navigate <- Emfort"}</title>
         </Helmet>
-        {this.props.turn ? (
-          <Helmet>
-            <title>{"Navigate <- Emfort"}</title>
-          </Helmet>
-        ) : null}
-        {this.props.authForm ? (
-          <Helmet>
-            <title>
-              {this.toTitleCase(this.props.authForm) + " <- Emfort"}
-            </title>
-          </Helmet>
-        ) : null}
-      </React.Fragment>
-    );
-  }
-}
+      ) : null}
+      {authForm ? (
+        <Helmet>
+          <title>{toTitleCase(authForm) + " <- Emfort"}</title>
+        </Helmet>
+      ) : null}
+    </>
+  );
+};
 
-const mapStateToProps = (state) => ({
-  turn: state.navTwist.turn,
-  authForm: state.loginRegister.authForm,
-});
-
-export default connect(mapStateToProps)(TitleHandler);
+export default TitleHandler;

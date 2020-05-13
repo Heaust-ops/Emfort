@@ -1,35 +1,26 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import React from "react";
+import { useSelector } from "react-redux";
 import "./Footer.css";
 
-export class Footer extends Component {
-  static propTypes = {
-    authForm: PropTypes.string.isRequired,
-  };
-  render() {
-    return (
-      <footer
-        id="Footer"
-        className={`${this.props.authForm ? "login_register_active" : ""} ${
-          this.props.className
-        } text-sm absolute bottom-0 inset-x-0 hidden sm:block duration-300 hover:opacity-0`}
+const Footer = (props) => {
+  const authForm = useSelector((state) => state.loginRegister.authForm);
+  return (
+    <footer
+      id="Footer"
+      className={`${authForm ? "login_register_active" : ""} ${
+        props.className
+      } text-sm absolute bottom-0 inset-x-0 hidden sm:block duration-300 hover:opacity-0`}
+    >
+      <div
+        id="footer"
+        className="bg-gray-700 tracking-widest text-center fixed bottom-0 right-0 left-0 text-gray-800"
       >
-        <div
-          id="footer"
-          className="bg-gray-700 tracking-widest text-center fixed bottom-0 right-0 left-0 text-gray-800"
-        >
-          <div className="text-center m-1">
-            Copyright (C) 2007 Free Software Foundation
-          </div>
+        <div className="text-center m-1">
+          Copyright (C) 2007 Free Software Foundation
         </div>
-      </footer>
-    );
-  }
-}
+      </div>
+    </footer>
+  );
+};
 
-const mapStateToProps = (state) => ({
-  authForm: state.loginRegister.authForm,
-});
-
-export default connect(mapStateToProps)(Footer);
+export default Footer;
