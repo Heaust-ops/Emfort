@@ -4,6 +4,7 @@ import {
   PAGETO_CONTACT,
   PAGETO_PROFILE,
   PAGETO_MARKET,
+  PAGETO_ASSETS,
 } from "../actions/types";
 
 const initialState = {
@@ -27,6 +28,9 @@ export default function (state = initialState, action) {
       return { ...state };
     case PAGETO_MARKET:
       state.page = "market";
+      return { ...state };
+    case PAGETO_ASSETS:
+      state.page = "assets";
       return { ...state };
     default:
       return state;

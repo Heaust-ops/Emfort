@@ -26,6 +26,9 @@ const TitleHandler = (props) => {
                 user ? `@${user.username} <- Emfort` : "Something went wrong!"
               }`,
               market: "Emfort - Market",
+              assets: `${
+                user ? `Assets - @${user.username}` : "Something went wrong!"
+              }`,
             }[page]
           }
         </title>

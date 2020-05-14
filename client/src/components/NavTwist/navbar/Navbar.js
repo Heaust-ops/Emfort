@@ -12,6 +12,7 @@ import {
   PAGETO_HOME,
   PAGETO_CONTACT,
   PAGETO_PROFILE,
+  PAGETO_ASSETS,
   //  PAGETO_MARKET,
 } from "../../../actions/types";
 import "./Navbar.css";
@@ -84,7 +85,13 @@ const Navbar = (props) => {
         </li>
         {isAuthenticated &&
         (user.authority === "atom" || user.authority === "merchant") ? (
-          <li className="pb-5 pl-4">
+          <li
+            className="pb-5 pl-4"
+            onClick={() => {
+              dispatch(pageTo(PAGETO_ASSETS));
+              onClickTurnClose();
+            }}
+          >
             <button className={`hover:text-red-600`}>
               <i className="fa fa-money fa-2x"></i> Assets
             </button>

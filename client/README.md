@@ -1,5 +1,6 @@
 # Emfort
-An ( eCommerce + Hotel Management ) project using MERN stack
+
+An ( eCommerce ) project using MERN stack
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

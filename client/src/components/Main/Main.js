@@ -6,6 +6,7 @@ import Home from "../Home/Home";
 import Contact from "../contact/Contact";
 import Market from "../market/Market";
 import Profile from "../profile/Profile";
+import Assets from "../Assets/Assets";
 import "./Main.css";
 
 const Main = (props) => {
@@ -48,11 +49,12 @@ const Main = (props) => {
           home: (
             <Home
               className={`${authForm || turn ? "pointer-events-none" : ""}`}
-            ></Home>
+            />
           ),
-          profile: <Profile className=""></Profile>,
-          contact: <Contact className=""></Contact>,
-          market: <Market className=""></Market>,
+          profile: <Profile className="" />,
+          contact: <Contact className="" />,
+          market: <Market className="" />,
+          assets: <Assets />,
         }[page]
       }
     </div>

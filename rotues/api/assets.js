@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../../middleware/auth");
 
-// Product model
+// Asset model
 const Asset = require("../../models/Asset");
 
 // @routes  GET api/assets/:username
@@ -12,7 +12,7 @@ router.get("/:username", (req, res) => {
   const username = req.params.username;
   Asset.find({ username })
     .sort({ date: -1 })
-    .then((assets) => res.json(assets));
+    .then((assets) => res.json(assets).catch(console.error()));
 });
 
 // @routes  POST api/assets
@@ -28,7 +28,15 @@ router.post("/", (req, res) => {
     count,
   });
 
-  newAsset.save().then((asset) => res.json(asset));
+  newAsset
+    .save()
+    .then((asset) => {
+      Asset.find({ username: asset.username })
+        .sort({ date: -1 })
+        .then((assets) => res.json(assets))
+        .catch(console.error());
+    })
+    .catch(console.error());
 });
 
 module.exports = router;
