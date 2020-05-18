@@ -1,17 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import "./Profile.css";
 
 const Profile = (props) => {
-  const [vw, setVw] = useState(window.innerWidth);
-  const [vh, setVh] = useState(window.innerHeight);
-
   const user = useSelector((state) => state.auth.user);
   return (
     <div className={`${props.className} text-white w-screen h-screen`}>
       <div
         style={{
-          backgroundImage: `url("https://res.cloudinary.com/heaust/image/upload/w_${vw},h_${vh}/v1587117201/Emfort/assets/I_sfyrv2.jpg")`,
+          backgroundImage: `url("https://res.cloudinary.com/heaust/image/upload/w_${window.innerWidth},h_${window.innerHeight}/v1587117201/Emfort/assets/I_sfyrv2.jpg")`,
         }}
         className="bg-image-2 z-10 overflow-hidden w-screen h-screen"
       ></div>

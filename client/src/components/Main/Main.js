@@ -30,31 +30,35 @@ const Main = (props) => {
         onClickToggleTurn();
         onClickResetLoginRegister();
       }}
-      style={{
-        height: `${
-          {
-            home: "200%",
-            profile: "100%",
-            contact: "100%",
-            market: "100%",
-          }[page]
-        }`,
-      }}
+      style={
+        page === "assets"
+          ? {}
+          : {
+              height: `${
+                {
+                  home: "200%",
+                  profile: "100%",
+                  contact: "100%",
+                  market: "100%",
+                }[page]
+              }`,
+            }
+      }
       className={`${
         authForm ? "login_register_active" : ""
-      } origin-top-left text-center overflow-hidden duration-500 text-white transform ${turn}`}
+      } origin-top-left text-center duration-500 text-white transform ${turn}`}
     >
       {
         {
-          home: (
-            <Home
-              className={`${authForm || turn ? "pointer-events-none" : ""}`}
-            />
+          home: <Home className={`${turn ? "pointer-events-none" : ""}`} />,
+          profile: (
+            <Profile className={`${turn ? "pointer-events-none" : ""}`} />
           ),
-          profile: <Profile className="" />,
-          contact: <Contact className="" />,
-          market: <Market className="" />,
-          assets: <Assets />,
+          contact: (
+            <Contact className={`${turn ? "pointer-events-none" : ""}`} />
+          ),
+          market: <Market className={`${turn ? "pointer-events-none" : ""}`} />,
+          assets: <Assets className={`${turn ? "pointer-events-none" : ""}`} />,
         }[page]
       }
     </div>

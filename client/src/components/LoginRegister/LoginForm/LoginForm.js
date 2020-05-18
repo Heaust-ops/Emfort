@@ -7,6 +7,19 @@ import { PAGETO_PROFILE } from "../../../actions/types";
 import { resetLoginRegister } from "../../../actions/loginRegisterActions";
 import "./LoginForm.css";
 
+const useBlink = (stateBlink, setstateBlink, duration = 300) => {
+  useEffect(() => {
+    if (stateBlink[1] !== 0) {
+      if (stateBlink[1] === stateBlink[2]) setstateBlink([null, 0, 8]);
+      else {
+        setTimeout(() => {
+          setstateBlink([!stateBlink[0], stateBlink[1] + 1, stateBlink[2]]);
+        }, duration);
+      }
+    }
+  }, [stateBlink]);
+};
+
 const LoginForm = (props) => {
   const [loginHeadingSpread, setloginHeadingSpread] = useState(false);
   const [msg, setmsg] = useState(null);
@@ -45,27 +58,8 @@ const LoginForm = (props) => {
     }
   }, [isAuthenticated, dispatch]);
 
-  useEffect(() => {
-    if (userBlink[1] !== 0) {
-      if (userBlink[1] === userBlink[2]) setuserBlink([null, 0, 8]);
-      else {
-        setTimeout(() => {
-          setuserBlink([!userBlink[0], userBlink[1] + 1, userBlink[2]]);
-        }, 300);
-      }
-    }
-  }, [userBlink]);
-
-  useEffect(() => {
-    if (passBlink[1] !== 0) {
-      if (passBlink[1] === passBlink[2]) setpassBlink([null, 0, 8]);
-      else {
-        setTimeout(() => {
-          setpassBlink([!passBlink[0], passBlink[1] + 1, passBlink[2]]);
-        }, 300);
-      }
-    }
-  }, [passBlink]);
+  useBlink(userBlink, setuserBlink);
+  useBlink(passBlink, setpassBlink);
 
   const blinkN = (state2blink, times) => {
     if (state2blink === "userBlink")

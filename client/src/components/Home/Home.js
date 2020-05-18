@@ -9,8 +9,6 @@ const bg1_image_home =
 
 const Home = (props) => {
   const [bgtextToggle, setbgtextToggle] = useState(false);
-  const [vw, setvw] = useState(window.innerWidth);
-  const [vh, setvh] = useState(window.innerHeight);
   const [isFullScreen, setisFullScreen] = useState(
     !window.screenTop && !window.screenY
   );
@@ -40,7 +38,7 @@ const Home = (props) => {
     <div className={`${props.className}`}>
       <div
         style={{
-          backgroundImage: `url("https://res.cloudinary.com/heaust/image/upload/w_${vw},h_${vh}/v1587117201/Emfort/${bg1_image_home}")`,
+          backgroundImage: `url("https://res.cloudinary.com/heaust/image/upload/w_${window.innerWidth},h_${window.innerHeight}/v1587117201/Emfort/${bg1_image_home}")`,
         }}
         className="bg-image z-10 overflow-hidden w-screen h-screen"
         onWheel={() => {
@@ -94,7 +92,7 @@ const Home = (props) => {
 
       <div
         style={{
-          backgroundImage: `url("https://res.cloudinary.com/heaust/image/upload/w_${vw},h_${vh}/v1587903988/Emfort/assets/lofi_edit_chlcr0.jpg")`,
+          backgroundImage: `url("https://res.cloudinary.com/heaust/image/upload/w_${window.innerWidth},h_${window.innerHeight}/v1587903988/Emfort/assets/lofi_edit_chlcr0.jpg")`,
           marginTop: "0.05rem",
         }}
         className="bg-image-2 w-screen h-screen"

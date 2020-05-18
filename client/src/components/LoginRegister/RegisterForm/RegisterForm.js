@@ -5,6 +5,19 @@ import { clearErrors } from "../../../actions/errorActions";
 import "./RegisterForm.css";
 import { REGISTER_START } from "../../../actions/types";
 
+const useBlink = (stateBlink, setstateBlink, duration = 300) => {
+  useEffect(() => {
+    if (stateBlink[1] !== 0) {
+      if (stateBlink[1] === stateBlink[2]) setstateBlink([null, 0, 8]);
+      else {
+        setTimeout(() => {
+          setstateBlink([!stateBlink[0], stateBlink[1] + 1, stateBlink[2]]);
+        }, duration);
+      }
+    }
+  }, [stateBlink]);
+};
+
 const RegisterForm = (props) => {
   const [registerHeadingSpread, setregisterHeadingSpread] = useState(false);
   const [msg, setmsg] = useState(null);
@@ -58,38 +71,9 @@ const RegisterForm = (props) => {
     setpassShow(!passShow);
   };
 
-  useEffect(() => {
-    if (userBlink[1] !== 0) {
-      if (userBlink[1] === userBlink[2]) setuserBlink([null, 0, 8]);
-      else {
-        setTimeout(() => {
-          setuserBlink([!userBlink[0], userBlink[1] + 1, userBlink[2]]);
-        }, 300);
-      }
-    }
-  }, [userBlink]);
-
-  useEffect(() => {
-    if (passBlink[1] !== 0) {
-      if (passBlink[1] === passBlink[2]) setpassBlink([null, 0, 8]);
-      else {
-        setTimeout(() => {
-          setpassBlink([!passBlink[0], passBlink[1] + 1, passBlink[2]]);
-        }, 300);
-      }
-    }
-  }, [passBlink]);
-
-  useEffect(() => {
-    if (emailBlink[1] !== 0) {
-      if (emailBlink[1] === emailBlink[2]) setemailBlink([null, 0, 8]);
-      else {
-        setTimeout(() => {
-          setemailBlink([!emailBlink[0], emailBlink[1] + 1, emailBlink[2]]);
-        }, 300);
-      }
-    }
-  }, [emailBlink]);
+  useBlink(userBlink, setuserBlink);
+  useBlink(passBlink, setpassBlink);
+  useBlink(emailBlink, setemailBlink);
 
   const blinkN = (state2blink, times) => {
     if (state2blink === "userBlink")

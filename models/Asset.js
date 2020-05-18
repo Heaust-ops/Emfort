@@ -23,7 +23,10 @@ const AssetSchema = new Schema({
   count: {
     type: String,
     required: true,
-    default: "unverified",
+  },
+  price: {
+    type: String,
+    required: true,
   },
   date: {
     type: Date,
