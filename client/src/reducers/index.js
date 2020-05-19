@@ -4,6 +4,7 @@ import loginRegisterReducer from "./loginRegisterReducer";
 import errorReducer from "./errorReducer";
 import authReducer from "./authReducer";
 import miscReducer from "./miscReducer";
+import searchMarketReducer from "./searchMarketReducer";
 
 export default combineReducers({
   navTwist: navTwistReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   error: errorReducer,
   auth: authReducer,
   misc: miscReducer,
+  searchMarket: searchMarketReducer,
 });

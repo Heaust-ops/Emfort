@@ -12,7 +12,7 @@ const useBlink = (stateBlink, setstateBlink, duration = 300) => {
         }, duration);
       }
     }
-  }, [stateBlink]);
+  }, [stateBlink, duration, setstateBlink]);
 };
 
 export const AssetCard = (props) => {
@@ -124,13 +124,12 @@ export const AssetCard = (props) => {
         setnormaldescription(description);
         setnormalprice(price);
         setnormaltitle(title);
+        setisLoading(false);
         setupdateNeeded(false);
       })
       .catch((err) => {
         console.log(err);
       });
-
-    setisLoading(false);
   };
 
   return (
@@ -139,11 +138,11 @@ export const AssetCard = (props) => {
         <div>
           {isLoading ? (
             <div
-              style={{ width: "50%" }}
+              style={{ height: "15rem", width: "50%" }}
               className={`text-center align-center float-center center rounded duration-500`}
             >
               <img
-                style={{ width: "40%" }}
+                style={{ width: "30%" }}
                 id={`loading_logo`}
                 src={`https://res.cloudinary.com/heaust/image/upload/w_66,h_66/v1587886495/HeaustBrand/Logos/logo4_y3zrum.svg`}
                 className={`left-0 loading_logo inline-block`}
@@ -152,20 +151,24 @@ export const AssetCard = (props) => {
             </div>
           ) : (
             <div
-              style={{ height: "15rem", width: "80%" }}
-              className={`flex xl:mb-0 mb-16 mt-16 mx-8 xl:flex-row flex-col justify-between float-center`}
+              style={
+                window.innerWidth < 1280
+                  ? { height: "15rem", width: "95%" }
+                  : { height: "15rem", width: "80%" }
+              }
+              className={`flex mt-16 mx-8 justify-between float-center`}
             >
               <div
                 style={{ width: "15rem", height: "15rem" }}
                 className={`rounded`}
               >
-                <img src={picture} />
+                <img src={picture} alt="" />
               </div>
               <div
                 style={{ width: "70%" }}
                 className={`rounded bg-transparent`}
               >
-                <div className={`flex xl:flex-row flex-col justify-around`}>
+                <div className={`flex justify-around`}>
                   <input
                     size={20}
                     maxLength={20}

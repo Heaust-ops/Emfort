@@ -1,19 +1,19 @@
-.bg-image {
-  filter: blur(0.75rem);
-  -webkit-filter: blur(0.75rem);
+.bg-image,
+.bg-image-2 {
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.bg-image {
+  filter: blur(0.75rem);
+  -webkit-filter: blur(0.75rem);
+}
+
 .bg-image-2 {
   filter: blur(0.25rem);
   -webkit-filter: blur(0.25rem);
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .bg-text,

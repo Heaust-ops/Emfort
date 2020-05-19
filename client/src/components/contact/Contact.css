@@ -1,0 +1,8 @@
+.contact_heading:hover {
+  letter-spacing: 0.8rem;
+  transition: 0.5s ease-out;
+}
+
+.contact_heading {
+  transition: 0.5s ease-out;
+}

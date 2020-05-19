@@ -17,7 +17,7 @@ const useBlink = (stateBlink, setstateBlink, duration = 300) => {
         }, duration);
       }
     }
-  }, [stateBlink]);
+  }, [stateBlink, duration, setstateBlink]);
 };
 
 const LoginForm = (props) => {

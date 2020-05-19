@@ -87,4 +87,14 @@ router.post("/", (req, res) => {
   });
 });
 
+// @routes  PUT api/users/update/authority
+// @desc    Update Authority of User
+// @access  Public
+router.put("/update/authority", (req, res) => {
+  const { username, authority } = req.body;
+  User.findOneAndUpdate({ username }, { $set: { authority } })
+    .then((status) => res.json({ ...status, success: true }))
+    .catch((err) => res.status(404).json({ success: false, error: err }));
+});
+
 module.exports = router;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Provider } from "react-redux";
 import store from "./store";
 import Navbar from "./components/NavTwist/navbar/Navbar";
@@ -11,7 +11,7 @@ import Fullscreen from "react-full-screen";
 import "./App.css";
 
 const App = () => {
-  const [fullScreen, setfullScreen] = useState(false);
+  // const [fullScreen, setfullScreen] = useState(false);
 
   useEffect(() => {
     store.dispatch(loadUser());
@@ -30,9 +30,9 @@ const App = () => {
   // }, []);
 
   return (
-    <Provider store={store}>
-      <Fullscreen enabled={fullScreen}>
-        <div id="App" className="App overflow-x-hidden h-screen">
+    <Provider store={store /** fullscreen */}>
+      <Fullscreen enabled={false}>
+        <div id="App" className="App overflow-x-hidden overflow-y-hidden">
           <TitleHandler />
           <Navbar />
           <LoginRegister className="noselect fixed top-0 right-0 w-3/4 z-10 h-full" />

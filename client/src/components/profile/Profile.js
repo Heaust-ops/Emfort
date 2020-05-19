@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useSelector } from "react-redux";
 import "./Profile.css";
 
 const Profile = (props) => {
   const user = useSelector((state) => state.auth.user);
+  const [username, setusername] = useState("");
+  const [authority, setauthority] = useState("");
+  const [updated, setupdated] = useState(false);
+
+  useEffect(() => {
+    if (updated) {
+      setTimeout(() => {
+        setupdated(false);
+      }, 3000);
+    }
+  }, [updated, setupdated]);
+
+  const changeAuthority = () => {
+    // Headers
+    const config = {
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+    // Request Body
+    const body = JSON.stringify({ username, authority });
+    axios
+      .put("api/users/update/authority", body, config)
+      .then((res) => {
+        if (res.data.success) setupdated(true);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className={`${props.className} text-white w-screen h-screen`}>
       <div
@@ -24,18 +53,25 @@ const Profile = (props) => {
           <>
             <br />
             <input
+              value={username}
+              onChange={(event) => setusername(event.target.value)}
               className={`text-black my-2 p-2 rounded border-black border-4`}
               placeholder="user"
             />
             <input
+              value={authority}
+              onChange={(event) => setauthority(event.target.value)}
               className={`text-black my-2 p-2 rounded border-black border-4`}
               placeholder="authority"
             />
             <button
+              onClick={changeAuthority}
               className={`my-2 p-2 bg-black hover:font-black hover:bg-transparent hover:text-black rounded border-black border-4`}
             >
               Change Authority
             </button>
+            <br />
+            <p className={`text-red-400 ${updated ? "" : "hidden"}`}>Updated</p>
           </>
         ) : null}
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useSpring, animated } from "react-spring";
 import { resetLoginRegister } from "../../actions/loginRegisterActions";
 import LoginForm from "./LoginForm/LoginForm";
 import RegisterForm from "./RegisterForm/RegisterForm";
@@ -9,14 +10,21 @@ const LoginRegister = (props) => {
   const authForm = useSelector((state) => state.loginRegister.authForm);
   const dispatch = useDispatch();
 
+  const toggleForm = useSpring({
+    transform: authForm
+      ? "translate(20%, 0) skewX(-8deg)"
+      : "translate(130%, 0) skewX(-8deg)",
+  });
+
   const onClickResetLoginRegister = () => {
     if (authForm) dispatch(resetLoginRegister());
   };
 
   return (
-    <div
+    <animated.div
       id="LoginRegister"
-      className={`${props.className} ${authForm ? "active" : "deactive"}`}
+      className={`${props.className}`}
+      style={toggleForm}
     >
       <span
         id="close_login_register"
@@ -40,7 +48,7 @@ const LoginRegister = (props) => {
           } duration-500`}
         />
       </div>
-    </div>
+    </animated.div>
   );
 };
 

@@ -36,16 +36,6 @@
   transition: 0.5s ease-out;
 }
 
-#LoginRegister.deactive {
-  transform: translate(130%, 0) skewX(-8deg);
-  transition: 0.5s ease-in;
-}
-
-#LoginRegister.active {
-  transform: translate(20%, 0) skewX(-8deg);
-  transition: 0.5s ease-out;
-}
-
 #LoginRegister_forms {
   transform: skewX(8deg) translateX(25%) translateY(7rem);
 }

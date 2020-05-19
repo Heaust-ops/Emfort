@@ -16,7 +16,28 @@ router.get("/:username", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-// @routes  POST api/assets/update/:id
+// @routes  GET api/assets/search/:searchSubstring
+// @desc    Basic search in title and description
+// @access  Public
+router.get("/search/:searchSubstring", (req, res) => {
+  const escapeRegExp = (str) => {
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+  };
+
+  let searchSubstring = escapeRegExp(req.params.searchSubstring);
+  searchSubstring = "(.*" + searchSubstring.split(" ").join(".*") + ".*)";
+  Asset.find({ title: { $regex: searchSubstring, $options: "$i" } })
+    .sort({ date: -1 })
+    .then((titleResults) => {
+      Asset.find({ description: { $regex: searchSubstring, $options: "$i" } })
+        .sort({ date: -1 })
+        .then((descResults) => res.json({ ...titleResults, ...descResults }))
+        .catch((err) => console.log(err));
+    })
+    .catch((err) => console.log(err));
+});
+
+// @routes  PUT api/assets/update/:id
 // @desc    Update Asset by ID
 // @access  Public
 router.put("/update/:id", (req, res) => {

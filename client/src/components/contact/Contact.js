@@ -15,7 +15,10 @@ const Contact = (props) => {
         style={{ marginTop: "12rem" }}
         className={`noselect duration-500 bg-text-4`}
       >
-        <h2 style={{ fontSize: "1.75rem" }} className={`tracking-widest`}>
+        <h2
+          style={{ fontSize: "1.75rem" }}
+          className={`contact_heading tracking-widest`}
+        >
           CONTACT
         </h2>
         <br></br>
@@ -35,6 +38,7 @@ const Contact = (props) => {
             className={"hover:text-white text-blue-400 duration-500"}
             href="http://www.instagram.com/aryaj.singh"
             target="_blank"
+            rel="noopener noreferrer"
           >
             @aryaj.singh
           </a>
@@ -49,6 +53,7 @@ const Contact = (props) => {
             className={"hover:text-white text-blue-400 duration-500"}
             href="https://github.com/Heaust-ops/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Heaust-ops
           </a>
@@ -58,6 +63,7 @@ const Contact = (props) => {
             className={"hover:text-white text-blue-400 duration-500"}
             href="https://www.linkedin.com/in/heaust/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             heaust
           </a>
@@ -79,6 +85,7 @@ const Contact = (props) => {
             className={"hover:text-white text-blue-400 duration-500"}
             href="http://www.instagram.com/swaggernaut65"
             target="_blank"
+            rel="noopener noreferrer"
           >
             @swaggernaut65
           </a>

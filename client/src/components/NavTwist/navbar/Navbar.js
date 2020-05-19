@@ -150,7 +150,14 @@ const Navbar = (props) => {
           </>
         )}
 
-        <li className="pb-5 pl-4">
+        <li
+          className={`${
+            isAuthenticated &&
+            (user.authority !== "unverified" || user.authority === "visitor")
+              ? ""
+              : "mb-20"
+          } pb-5 pl-4`}
+        >
           <button
             className={`hover:text-red-600`}
             onClick={() => {
@@ -161,11 +168,14 @@ const Navbar = (props) => {
             <i className="fa fa-envelope-open fa-2x"></i> Contact Us
           </button>
         </li>
-        <li className="mb-20 pb-5 pl-5 srch">
-          <span>
-            <SearchBar></SearchBar>
-          </span>
-        </li>
+        {isAuthenticated &&
+        (user.authority !== "unverified" || user.authority === "visitor") ? (
+          <li className="mb-20 pb-5 pl-5 srch">
+            <span>
+              <SearchBar></SearchBar>
+            </span>
+          </li>
+        ) : null}
       </ul>
     </>
   );

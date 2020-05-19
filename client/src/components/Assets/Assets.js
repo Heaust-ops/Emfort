@@ -16,7 +16,7 @@ const useBlink = (stateBlink, setstateBlink, duration = 300) => {
         }, duration);
       }
     }
-  }, [stateBlink]);
+  }, [stateBlink, duration, setstateBlink]);
 };
 
 export const Assets = (props) => {
@@ -25,8 +25,8 @@ export const Assets = (props) => {
   const [image, setimage] = useState(null);
   const [imageDestination, setimageDestination] = useState(null);
   const [picture, setpicture] = useState(null);
-  const [count, setcount] = useState(null);
-  const [price, setprice] = useState(null);
+  const [count, setcount] = useState("");
+  const [price, setprice] = useState("");
   const [uploading, setuploading] = useState(false);
   const [titleBlink, settitleBlink] = useState([null, 0, 8]);
   const [descriptionBlink, setdescriptionBlink] = useState([null, 0, 8]);
@@ -42,19 +42,15 @@ export const Assets = (props) => {
   useBlink(imageBlink, setimageBlink, 2000);
 
   useEffect(() => {
-    if (picture) {
-      serverUpload();
-    }
-  }, [picture]);
-
-  useEffect(() => {
     setuploading(true);
     axios
       .get("/api/assets/" + user.username)
-      .then((res) => setserverResponse(res.data))
+      .then((res) => {
+        setserverResponse(res.data);
+        setuploading(false);
+      })
       .catch((err) => console.log(err));
-    setuploading(false);
-  }, []);
+  }, [user.username]);
 
   const _crop = () => {
     if (cropper.current.getCroppedCanvas()) {
@@ -189,13 +185,19 @@ export const Assets = (props) => {
     uploadAsset();
   };
 
+  useEffect(() => {
+    if (picture) {
+      serverUpload();
+    }
+  });
+
   const fileInput = useRef();
   const cropper = useRef();
   return (
     <div className={`${props.className} xl:mb-0 mb-16`}>
       <div
-        style={{ width: "80%" }}
-        className={`flex mt-16 mx-8 xl:flex-row flex-col justify-between float-center`}
+        style={window.innerWidth < 1280 ? { width: "95%" } : { width: "80%" }}
+        className={`flex mt-16 mx-8 justify-between float-center`}
       >
         <div
           onClick={() => fileInput.current.click()}
@@ -207,7 +209,7 @@ export const Assets = (props) => {
           }`}
         >
           {imageDestination ? (
-            <img id="ChosenAssetImage" src={imageDestination} />
+            <img id="ChosenAssetImage" src={imageDestination} alt="" />
           ) : (
             <>
               <h1
@@ -235,7 +237,7 @@ export const Assets = (props) => {
           />
         </div>
         <div style={{ width: "70%" }} className={`rounded bg-transparent`}>
-          <div className={`flex xl:flex-row flex-col justify-around`}>
+          <div className={`flex justify-around`}>
             <input
               size={20}
               maxLength={20}
@@ -298,14 +300,14 @@ export const Assets = (props) => {
       {uploading ? (
         <div
           style={{ height: "15rem", width: "80%" }}
-          className={`flex mt-16 mx-auto xl:flex-row flex-col justify-between float-center`}
+          className={`flex mt-16 mx-auto justify-between float-center`}
         >
           <div
             style={{ width: "50%" }}
             className={`text-center align-center float-center center rounded duration-500`}
           >
             <img
-              style={{ width: "40%" }}
+              style={{ width: "30%" }}
               id={`loading_logo`}
               src={`https://res.cloudinary.com/heaust/image/upload/w_66,h_66/v1587886495/HeaustBrand/Logos/logo4_y3zrum.svg`}
               className={`left-0 loading_logo inline-block`}
@@ -316,8 +318,12 @@ export const Assets = (props) => {
       ) : null}
       {image && !uploading ? (
         <div
-          style={{ height: "15rem", width: "80%" }}
-          className={`flex mt-16 mb-16 mx-auto xl:flex-row flex-col justify-between float-center`}
+          style={
+            window.innerWidth < 1280
+              ? { height: "15rem", width: "95%" }
+              : { height: "15rem", width: "80%" }
+          }
+          className={`flex mt-16 mb-16 mx-auto justify-between float-center`}
         >
           <div
             style={{ width: "50%" }}
@@ -341,20 +347,20 @@ export const Assets = (props) => {
           <br />
         </>
       ) : null}
-      <div>
-        {uploading
-          ? null
-          : serverResponse.map((i) => (
-              <AssetCard
-                title={i.title}
-                count={i.count}
-                price={i.price}
-                description={i.description}
-                picture={i.picture}
-                _id={i._id}
-              />
-            ))}
-      </div>
+
+      {uploading
+        ? null
+        : serverResponse.map((i) => (
+            <AssetCard
+              title={i.title}
+              count={i.count}
+              price={i.price}
+              description={i.description}
+              picture={i.picture}
+              key={i._id}
+              _id={i._id}
+            />
+          ))}
     </div>
   );
 };

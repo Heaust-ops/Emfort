@@ -27,3 +27,6 @@ export const PAGETO_CONTACT = "PAGETO_CONTACT";
 export const PAGETO_PROFILE = "PAGETO_PROFILE";
 export const PAGETO_MARKET = "PAGETO_MARKET";
 export const PAGETO_ASSETS = "PAGETO_ASSETS";
+// Search Market
+export const SEARCH_MARKET = "SEARCH_MARKET";
+export const QUERY_LOADING = "QUERY_LOADING";
