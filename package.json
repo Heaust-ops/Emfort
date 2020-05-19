@@ -11,9 +11,9 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "yarn --cwd client start",
-    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false YARN_PRODUCTION=false yarn install && yarn --cwd client install && yarn --cwd client run build"
+    "dev": "concurrently \"yarn run server\" \"yarn run client\""
   },
+  "heroku-run-build-script": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Heaust-ops/Emfort.git"
