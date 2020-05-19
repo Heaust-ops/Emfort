@@ -22,9 +22,12 @@ const verifyMail = async (to, link) => {
   let info = await transporter.sendMail({
     from: '"Heaust Azure 👻"',
     to,
-    subject: "Hello ✔",
+    subject: "Emfort Account Activation ✔",
     text: `click on this link to activate your account ${link}`,
-    html: `<a href='${link}'>activate</a>`,
+    html: `
+    click
+    <a href='${link}'>here</a>
+    to activate`,
   });
 
   return info.messageId;
