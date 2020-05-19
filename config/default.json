@@ -1,6 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://heaust:oakdoor@123@emfort-8s0kw.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "_secret@13secre",
-  "siteName": "http://localhost:5000/",
-  "mailPass": "oakdoor@123"
-}
