@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "an ecom parody",
   "main": "server.js",
+  "engines": {
+    "yarn": "1.22.4"
+  },
   "scripts": {
     "client-install": "yarn --cwd client install",
     "start": "node server.js",
