@@ -13,7 +13,6 @@
     "client": "yarn --cwd client start",
     "dev": "concurrently \"yarn run server\" \"yarn run client\""
   },
-  "heroku-run-build-script": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Heaust-ops/Emfort.git"
